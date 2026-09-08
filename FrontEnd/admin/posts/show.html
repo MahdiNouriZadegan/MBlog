@@ -1,0 +1,131 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBlog admin panel | post</title>
+    <link rel="shortcut icon" href="../../../FrontEnd/public/images/small-logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../public/css/admin/style.css">
+    <link rel="stylesheet" href="../../public/css/admin/comment.css">
+    <link rel="stylesheet" href="../../public/fonts/fontAwesome/css/font-awesome.min.css">
+    <script src="../../public/js/alpine.js" defer></script>
+</head>
+
+<body>
+    <!-- header -->
+    <section class="header d-flex px-5 align-items-center justify-content-between">
+        <section>
+            <a href=""><img src="../../public/images/large-logo.png" class="logo" alt=""></a>
+        </section>
+        <section>
+            <section class="user-dropdown" x-data="adminDropDown()">
+                <span @click.away="visible=false" x-on:click="visible = !visible">Admin <small><i
+                            x-bind:class="visible == false ? 'fa-chevron-down' : 'fa-chevron-up'"
+                            class="fa"></i></small></span>
+                <section x-show="visible" class="user-drop" x-transition:enter.duration.400ms>
+                    <form action="">
+                        <button class="logout-btn" type="submit">Logout <i class="px-2 fa fa-sign-out"></i></button>
+                    </form>
+                </section>
+            </section>
+        </section>
+    </section>
+    <!-- content -->
+    <section class="content container">
+        <span class="fs-5 content-title">Post</span>
+        <table class="table table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">Written by</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Count of Comments</th>
+                    <th scope="col">Views</th>
+                    <th scope="col">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Mahdi</td>
+                    <td><a href="" class="text-decoration-none">Laravel</a></td>
+                    <td>Programming</td>
+                    <td>4</td>
+                    <td>100</td>
+                    <td x-data="changeStatus()">
+                        <select class="form-select" x-on:change="handleChangePost($event.target.id)" id="1">
+                            <option value="1" class="form-control">Visible</option>
+                            <option value="2" class="form-control">Hidden</option>
+                        </select>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">Favorites</th>
+                    <th scope="col">Cover</th>
+                    <th scope="col">Slug</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>10</td>
+                    <td><img class="user-profile" src="../../public/images/small-logo.png" alt=""></td>
+                    <td>laravel</td>
+                    
+
+                </tr>
+            </tbody>
+        </table>
+        <section>
+            <p class="fs-5">Tags :</p>
+            <span class="bg-dark text-white rounded-2 p-2">#laravel</span>
+            <span class="bg-dark text-white rounded-2 p-2">#programming</span>
+            <hr>
+            <p class="fs-5 m-0">Content :</p>
+            <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse necessitatibus repellendus illo recusandae, laborum velit explicabo reiciendis earum doloribus dolor, ullam ipsam error neque consectetur pariatur ex modi aliquam doloremque.</span>
+
+            <hr>
+            <p class="fs-5 mt-3">Comment :</p>
+            <section class="comment-body" style="margin-left: 0px;">
+                <p>I agree with you</p>
+            </section>
+            <!-- indent comment -->
+            <section class="comment-body" style="margin-left: 10px;">
+                <p>Me too!</p>
+            </section>
+            <hr>
+            <p class="fs-5 mt-3">Admin comment :</p>
+            <p class="text-danger">There is no comment!</p>
+            <form action="" class="form">
+                <label for="" class="mb-2">Enter your comment:</label>
+                <textarea name="comment" class="form-control" id=""></textarea>
+                <button class="btn btn-success mt-2">Submit Comment</button>
+            </form>
+
+        </section>
+    </section>
+
+
+
+
+    <!-- footer -->
+
+    <section class="footer">
+        <section class="footer-menus d-flex justify-content-center">
+            <a href="../index.html" title="Home"><i class="fa fa-home" aria-hidden="true"></i></a>
+            <a href="" title="Users"><i class="fa fa-user" aria-hidden="true"></i></a>
+            <a href="" title="Posts"><i class="fa fa-newspaper-o" aria-hidden="true"></i></a>
+            <a href="#" title="Tags"><i class="fa fa-tags" aria-hidden="true"></i></a>
+            <a href="" title="Comments"><i class="fa fa-comment" aria-hidden="true"></i></a>
+            <a href="" title="Categories"><i class="fa fa-folder" aria-hidden="true"></i></a>
+        </section>
+    </section>
+
+    <script src="../../public/js/admin/script.js"></script>
+    <script src="../../public/js/admin/change-status.js"></script>
+</body>
+
+</html>
