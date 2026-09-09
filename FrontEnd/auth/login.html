@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../public/images/small-logo.png" type="image/x-icon">
+    <title>Login | MBlog</title>
+    <link rel="stylesheet" href="../public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../public/fonts/fontAwesome/css/font-awesome.min.css">
+    <script src="../public/js/alpine.js" defer></script>
+    <script src="../public/js/sweetAlert.js"></script>
+    <link rel="stylesheet" href="../public/css/auth/style.css">
+    <link rel="stylesheet" href="../public/css/auth/login.css">
+</head>
+
+<body>
+
+    <div class="register-wrapper" x-data="loginForm()">
+
+        <div class="register-card">
+
+            <!-- =========================
+             BRAND
+            ========================== -->
+
+            <section class="brand-section">
+
+                <div class="brand-content">
+
+                    <img src="../public/images/small-logo.png" alt="MBlog" class="brand-logo">
+
+                    <h2 class="brand-title">
+                        Welcome Back!
+                    </h2>
+
+                    <p class="brand-description">
+                        Sign in to your MBlog account.
+                        Continue reading, sharing and connecting
+                        with your community.
+                    </p>
+
+                    <div class="brand-features">
+
+                        <div class="brand-feature">
+                            <span class="feature-icon">
+                                <i class="fa fa-shield"></i>
+                            </span>
+                            <span>
+                                Secure and protected account
+                            </span>
+                        </div>
+
+                        <div class="brand-feature">
+                            <span class="feature-icon">
+                                <i class="fa fa-bookmark"></i>
+                            </span>
+                            <span>
+                                Save your favorite posts
+                            </span>
+                        </div>
+
+                        <div class="brand-feature">
+                            <span class="feature-icon">
+                                <i class="fa fa-comment"></i>
+                            </span>
+                            <span>
+                                Join the conversation
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="brand-footer">
+                    © 2026 MBlog. All rights reserved.
+                </div>
+
+            </section>
+
+            <!-- =========================
+             FORM
+            ========================== -->
+
+            <section class="form-section">
+
+                <div class="form-header">
+
+                    <h1>
+                        Sign in to MBlog
+                    </h1>
+
+                    <p>
+                        Enter your credentials to access your account.
+                    </p>
+
+                </div>
+
+                <form @submit.prevent="submitForm" novalidate>
+
+                    <!-- EMAIL -->
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Email
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <i class="fa fa-user input-icon"></i>
+
+                            <input type="text" name="email" class="form-control" placeholder="Enter your email or username"
+                                x-model="email" required autocomplete="username" :class="{
+                                'is-invalid':
+                                submitted && !validLogin
+                            }">
+
+                        </div>
+
+                        <div class="invalid-feedback" :class="{
+                            'd-block':
+                            submitted && !validLogin
+                        }">
+                            Please enter your email or username.
+                        </div>
+
+                    </div>
+
+                    <!-- PASSWORD -->
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Password
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <i class="fa fa-lock input-icon"></i>
+
+                            <input :type="showPassword ? 'text' : 'password'" name="password" class="form-control" 
+                                placeholder="Enter your password" x-model="password" required minlength="8"
+                                autocomplete="current-password" :class="{
+                                'is-invalid':
+                                submitted && password.length < 8
+                            }">
+
+                            <button type="button" class="password-toggle" @click="showPassword = !showPassword">
+
+                                <i class="fa" :class="showPassword ? 'fa-eye-slash' : 'fa-eye'"></i>
+
+                            </button>
+
+                        </div>
+
+                        <div class="invalid-feedback" :class="{
+                            'd-block':
+                            submitted && password.length < 8
+                        }">
+                            Password must be at least 8 characters.
+                        </div>
+
+                    </div>
+
+                    <!-- REMEMBER ME & FORGOT PASSWORD -->
+
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+
+                        <div class="form-check">
+
+                            <input class="form-check-input" type="checkbox" id="remember" x-model="rememberMe">
+
+                            <label class="form-check-label terms" for="remember">
+                                Remember me
+                            </label>
+
+                        </div>
+
+                        <a href="forgot-password.html" class="forgot-link">
+                            Forgot password?
+                        </a>
+
+                    </div>
+
+                    <!-- BUTTON -->
+
+                    <button type="submit" class="register-btn" :disabled="!canSubmit">
+
+                        <i class="fa fa-sign-in me-2"></i>
+
+                        Sign in
+
+                    </button>
+
+                    <!-- REGISTER -->
+
+                    <div class="login-text">
+
+                        Don't have an account?
+
+                        <a href="register.html">
+                            Create one now
+                        </a>
+
+                    </div>
+
+                </form>
+
+            </section>
+
+        </div>
+
+    </div>
+
+    <script src="../public/js/auth/login.js"></script>
+
+</body>
+
+</html>

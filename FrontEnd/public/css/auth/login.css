@@ -1,0 +1,48 @@
+/* =========================
+    FORGOT PASSWORD LINK
+========================= */
+
+.forgot-link {
+    font-size: 13px;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.forgot-link:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+/* =========================
+    REMEMBER ME CHECKBOX
+========================= */
+
+.form-check-input:checked {
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+
+.form-check-input:focus {
+    box-shadow: 0 0 0 0.25rem rgba(8, 125, 245, 0.25);
+    border-color: var(--primary);
+}
+
+/* =========================
+    RESPONSIVE FIXES
+========================= */
+
+@media (max-width: 850px) {
+    .brand-features {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .d-flex.justify-content-between {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 15px;
+    }
+}

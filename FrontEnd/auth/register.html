@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="../public/images/small-logo.png" type="image/x-icon">
+    <title>Create Account | MBlog</title>
+    <link rel="stylesheet" href="../public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../public/fonts/fontAwesome/css/font-awesome.min.css">
+    <script src="../public/js/alpine.js" defer></script>
+    <script src="../public/js/sweetAlert.js"></script>
+    <link rel="stylesheet" href="../public/css/auth/style.css">
+</head>
+
+
+<body>
+
+
+    <div class="register-wrapper" x-data="registerForm()">
+
+
+        <div class="register-card">
+
+
+            <!-- =========================
+             BRAND
+        ========================== -->
+
+            <section class="brand-section">
+
+                <div class="brand-content">
+
+                    <img src="../public/images/small-logo.png" alt="MBlog" class="brand-logo">
+
+
+                    <h2 class="brand-title">
+                        Welcome to MBlog
+                    </h2>
+
+
+                    <p class="brand-description">
+                        Create your account and join MBlog.
+                        Discover stories, share ideas and connect
+                        with a growing community of readers.
+                    </p>
+
+
+                    <div class="brand-features">
+
+                        <div class="brand-feature">
+
+                            <span class="feature-icon">
+                                <i class="fa fa-shield"></i>
+                            </span>
+
+                            <span>
+                                Secure and protected account
+                            </span>
+
+                        </div>
+
+
+                        <div class="brand-feature">
+
+                            <span class="feature-icon">
+                                <i class="fa fa-bookmark"></i>
+                            </span>
+
+                            <span>
+                                Save your favorite posts
+                            </span>
+
+                        </div>
+
+
+                        <div class="brand-feature">
+
+                            <span class="feature-icon">
+                                <i class="fa fa-comment"></i>
+                            </span>
+
+                            <span>
+                                Join the conversation
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="brand-footer">
+
+                    © 2026 MBlog. All rights reserved.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =========================
+             FORM
+        ========================== -->
+
+            <section class="form-section">
+
+
+                <div class="form-header">
+
+                    <h1>
+                        Create your account
+                    </h1>
+
+                    <p>
+                        Fill in your details to get started.
+                    </p>
+
+                </div>
+
+
+
+                <form @submit.prevent="submitForm" novalidate>
+
+
+                    <!-- USERNAME -->
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Username
+                        </label>
+
+
+                        <div class="input-wrapper">
+
+                            <i class="fa fa-user input-icon"></i>
+
+                            <input type="text" name="username" class="form-control" placeholder="Choose a username"
+                                x-model="username" required minlength="3" autocomplete="username" :class="{
+                                'is-invalid':
+                                submitted &&
+                                username.length < 3
+                            }">
+
+                        </div>
+
+
+                        <div class="invalid-feedback" :class="{
+                            'd-block':
+                            submitted &&
+                            username.length < 3
+                        }">
+                            Username must be at least 3 characters.
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- EMAIL -->
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Email address
+                        </label>
+
+
+                        <div class="input-wrapper">
+
+                            <i class="fa fa-envelope input-icon"></i>
+
+                            <input type="email" name="email" class="form-control" placeholder="you@example.com"
+                                x-model="email" required autocomplete="email" :class="{
+                                'is-invalid':
+                                submitted &&
+                                !validEmail
+                            }">
+
+                        </div>
+
+
+                        <div class="invalid-feedback" :class="{
+                            'd-block':
+                            submitted &&
+                            !validEmail
+                        }">
+                            Please enter a valid email address.
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- PASSWORD -->
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Password
+                        </label>
+
+
+                        <div class="input-wrapper">
+
+                            <i class="fa fa-lock input-icon"></i>
+
+
+                            <input :type="
+                                showPassword
+                                ? 'text'
+                                : 'password'
+                            " name="password" class="form-control" placeholder="Create a strong password"
+                                x-model="password" @input="checkPasswordStrength" required minlength="8"
+                                autocomplete="new-password" :class="{
+                                'is-invalid':
+                                submitted &&
+                                password.length < 8
+                            }">
+
+
+                            <button type="button" class="password-toggle" @click="
+                                showPassword =
+                                !showPassword
+                            ">
+
+                                <i class="fa" :class="
+                                    showPassword
+                                    ? 'fa-eye-slash'
+                                    : 'fa-eye'
+                                "></i>
+
+                            </button>
+
+                        </div>
+
+
+
+                        <!-- STRENGTH -->
+
+                        <div class="password-strength" x-show="password.length > 0" x-transition>
+
+                            <div class="strength-bars">
+
+                                <span class="strength-bar" :class="{
+                                    'active':
+                                    passwordStrength >= 1
+                                }"></span>
+
+                                <span class="strength-bar" :class="{
+                                    'active':
+                                    passwordStrength >= 2
+                                }"></span>
+
+                                <span class="strength-bar" :class="{
+                                    'active':
+                                    passwordStrength >= 3
+                                }"></span>
+
+                                <span class="strength-bar" :class="{
+                                    'active':
+                                    passwordStrength >= 4
+                                }"></span>
+
+                            </div>
+
+
+                            <div class="strength-text">
+
+                                <span x-text="strengthText"></span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="invalid-feedback" :class="{
+                            'd-block':
+                            submitted &&
+                            password.length < 8
+                        }">
+                            Password must be at least 8 characters.
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- CONFIRM PASSWORD -->
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Confirm password
+                        </label>
+
+
+                        <div class="input-wrapper">
+
+                            <i class="fa fa-lock input-icon"></i>
+
+
+                            <input :type="
+                                showConfirmPassword
+                                ? 'text'
+                                : 'password'
+                            " name="password_confirmation" class="form-control" placeholder="Repeat your password"
+                                x-model="passwordConfirmation" required autocomplete="new-password" :class="{
+                                'is-invalid':
+                                submitted &&
+                                password !== passwordConfirmation
+                            }">
+
+
+                            <button type="button" class="password-toggle" @click="
+                                showConfirmPassword =
+                                !showConfirmPassword
+                            ">
+
+                                <i class="fa" :class="
+                                    showConfirmPassword
+                                    ? 'fa-eye-slash'
+                                    : 'fa-eye'
+                                "></i>
+
+                            </button>
+
+                        </div>
+
+
+                        <div class="invalid-feedback" :class="{
+                            'd-block':
+                            submitted &&
+                            password !== passwordConfirmation
+                        }">
+                            Passwords do not match.
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- CAPTCHA -->
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Security check
+                        </label>
+
+
+                        <div class="captcha-box">
+
+
+                            <div class="captcha-question">
+
+                                <span x-text="captchaA"></span>
+
+                                <span class="mx-1">+</span>
+
+                                <span x-text="captchaB"></span>
+
+                                <span class="mx-1">=</span>
+
+                                <span>?</span>
+
+                            </div>
+
+
+                            <input type="number" class="form-control captcha-input" placeholder="Your answer"
+                                x-model="captchaAnswer">
+
+
+                            <button type="button" class="captcha-refresh" @click="generateCaptcha()">
+
+                                <i class="fa fa-refresh"></i>
+
+                            </button>
+
+                        </div>
+
+
+                        <div class="invalid-feedback" :class="{
+                            'd-block':
+                            submitted &&
+                            !captchaCorrect
+                        }">
+                            Incorrect answer.
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- TERMS -->
+
+                    <div class="form-check mb-4">
+
+                        <input class="form-check-input" type="checkbox" id="terms" x-model="termsAccepted">
+
+
+                        <label class="form-check-label terms" for="terms">
+
+                            I agree to the
+
+                            <a href="#">
+                                Terms of Service
+                            </a>
+
+                            and
+
+                            <a href="#">
+                                Privacy Policy
+                            </a>.
+
+                        </label>
+
+                    </div>
+
+
+
+                    <!-- BUTTON -->
+
+                    <button type="submit" class="register-btn" :disabled="!canSubmit">
+
+                        <i class="fa fa-user-plus me-2"></i>
+
+                        Create account
+
+                    </button>
+
+
+
+                    <!-- LOGIN -->
+
+                    <div class="login-text">
+
+                        Already have an account?
+
+                        <a href="login.html">
+                            Sign in
+                        </a>
+
+                    </div>
+
+
+                </form>
+
+            </section>
+
+        </div>
+
+    </div>
+<script src="../public/js/auth/register.js"></script>
+</body>
+
+</html>

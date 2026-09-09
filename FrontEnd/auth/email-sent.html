@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="../public/images/small-logo.png" type="image/x-icon">
+    <title>Email sent successfuly | MBlog</title>
+    <script src="../public/js/sweetAlert.js"></script>
+</head>
+
+
+<body>
+
+
+<script>
+    Swal.fire({
+    title: 'Email sent',
+    text: 'Click on the link provided!',
+    icon: 'success',
+    confirmButtonText: 'OK',
+    confirmButtonColor: '#28a745',
+    allowOutsideClick: false,
+    allowEscapeKey: false
+}).then((result) => {
+    if (result.isConfirmed) {
+        window.location.href = '../app/index.html'; // لینک مورد نظر
+    }
+});
+</script>
+</body>
+
+</html>
