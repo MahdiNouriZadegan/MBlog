@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en" x-data="{ mobileSearch: false }">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="MBlog — thoughtful stories about technology, development, and digital life.">
+  <title>Category | MBlog</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="../public/css/app/style.css">
+</head>
+<body>
+  <header class="site-header sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="index.html" aria-label="MBlog home">
+          <img src="../public/images/large-logo.png" alt="MBlog logo" class="brand-logo">
+        </a>
+
+        <div class="d-flex align-items-center gap-2 order-lg-3">
+          <button class="icon-btn d-lg-none" @click="mobileSearch = !mobileSearch" aria-label="Toggle search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+          <a href="#" class="btn btn-link auth-link d-none d-md-inline-flex">Sign in</a>
+          <a href="#" class="btn btn-primary btn-sm-pill d-none d-md-inline-flex">Register</a>
+          <button class="navbar-toggler shadow-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+
+        <div class="collapse navbar-collapse order-lg-2" id="mainNav">
+          <ul class="navbar-nav mx-lg-auto mb-3 mb-lg-0">
+            <li class="nav-item"><a class="nav-link " href="index.html">Home</a></li>
+
+<li class="nav-item"><a class="nav-link active" href="categories.html">Categories</a></li>
+          </ul>
+          <div class="d-md-none mobile-auth pb-3">
+            <a href="#" class="btn btn-outline-primary w-100 mb-2">Sign in</a>
+            <a href="#" class="btn btn-primary w-100">Register</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="mobile-search-panel border-top" x-show="mobileSearch" x-transition x-cloak>
+      <div class="container py-3">
+        <form action="articles.html" class="position-relative">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input class="form-control form-control-lg search-field" type="search" placeholder="Search stories...">
+        </form>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+<section class="page-hero compact-page-hero" x-data="{ name: new URLSearchParams(location.search).get('category') || 'technology' }">
+  <div class="container py-5">
+    <a href="categories.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> All categories</a>
+    <span class="section-kicker mt-4">Category</span>
+    <h1 class="text-capitalize" x-text="name.replace('-', ' ')"></h1>
+    <p>Curated MBlog stories from this topic, collected in one clean stream.</p>
+  </div>
+</section>
+
+<section class="section-space pt-4">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-8">
+        <article class="list-post">
+          <div class="post-art art-ai"><i class="fa-solid fa-brain"></i></div>
+          <div><div class="post-meta"><span>Technology</span><span>8 min read</span></div><h3><a href="article.html">The AI Tools Quietly Changing How Developers Work</a></h3><p>How smart assistants, code agents and automated review tools are moving from novelty to normal.</p><div class="post-footer"><span>Sep 8, 2026</span><a href="article.html">Read article <i class="fa-solid fa-arrow-right"></i></a></div></div>
+        </article>
+        <article class="list-post">
+          <div class="post-art art-cloud"><i class="fa-solid fa-cloud"></i></div>
+          <div><div class="post-meta"><span>Technology</span><span>7 min read</span></div><h3><a href="article.html">What Edge AI Means for Everyday Devices</a></h3><p>More intelligence is moving off the cloud and onto phones, laptops and tiny embedded devices.</p><div class="post-footer"><span>Sep 7, 2026</span><a href="article.html">Read article <i class="fa-solid fa-arrow-right"></i></a></div></div>
+        </article>
+        <article class="list-post">
+          <div class="post-art art-web"><i class="fa-solid fa-network-wired"></i></div>
+          <div><div class="post-meta"><span>Technology</span><span>6 min read</span></div><h3><a href="article.html">The Web Is Becoming More Local Again</a></h3><p>Why smaller communities, independent publishing and niche tools are having another moment.</p><div class="post-footer"><span>Aug 30, 2026</span><a href="article.html">Read article <i class="fa-solid fa-arrow-right"></i></a></div></div>
+        </article>
+      </div>
+      <aside class="col-lg-4">
+        <div class="sidebar-card sticky-lg-top sidebar-offset">
+          <h5>Explore more</h5>
+          <a href="category.html?category=development"><span><i class="fa-solid fa-code"></i> Development</span><i class="fa-solid fa-chevron-right"></i></a>
+          <a href="category.html?category=design"><span><i class="fa-solid fa-wand-magic-sparkles"></i> Design</span><i class="fa-solid fa-chevron-right"></i></a>
+          <a href="category.html?category=life"><span><i class="fa-solid fa-compass"></i> Digital Life</span><i class="fa-solid fa-chevron-right"></i></a>
+          <a href="category.html?category=business"><span><i class="fa-solid fa-chart-line"></i> Business</span><i class="fa-solid fa-chevron-right"></i></a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+  </main>
+
+  <footer class="site-footer mt-5">
+    <div class="container py-5">
+      <div class="row g-4 align-items-start">
+        <div class="col-lg-5">
+          <img src="../public/images/large-logo.png" alt="MBlog logo" class="footer-logo mb-3">
+          <p class="footer-copy">Clear ideas for curious people. MBlog covers technology, development, productivity, digital culture, and the small choices shaping modern life.</p>
+        </div>
+        <div class="col-6 col-lg-2 offset-lg-1">
+          <h6>Explore</h6>
+          <a href="articles.html">Articles</a>
+          <a href="categories.html">Categories</a>
+          <a href="category.html?category=technology">Technology</a>
+          <a href="category.html?category=development">Development</a>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h6>Company</h6>
+          <a href="#">About</a>
+          <a href="#">Contact</a>
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+        </div>
+        <div class="col-lg-2">
+          <h6>Follow</h6>
+          <div class="socials">
+            <a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom d-flex flex-column flex-md-row justify-content-between gap-2 mt-5 pt-4">
+        <small>© <span id="year"></span> MBlog. All rights reserved.</small>
+        <small>TECH <span>•</span> DEV <span>•</span> LIFE</small>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.9/dist/cdn.min.js"></script>
+  <script src="../public/js/app/app.js"></script>
+</body>
+</html>

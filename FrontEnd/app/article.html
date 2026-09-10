@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en" x-data="{ mobileSearch: false }">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="MBlog — thoughtful stories about technology, development, and digital life.">
+  <title>Article | MBlog</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap"
+    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <script src="../public/js/sweetAlert.js"></script>
+  <link rel="stylesheet" href="../public/css/app/style.css">
+</head>
+
+<body>
+  <header class="site-header sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="index.html" aria-label="MBlog home">
+          <img src="../public/images/large-logo.png" alt="MBlog logo" class="brand-logo">
+        </a>
+
+        <div class="d-flex align-items-center gap-2 order-lg-3">
+          <button class="icon-btn d-lg-none" @click="mobileSearch = !mobileSearch" aria-label="Toggle search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+          <a href="#" class="btn btn-link auth-link d-none d-md-inline-flex">Sign in</a>
+          <a href="#" class="btn btn-primary btn-sm-pill d-none d-md-inline-flex">Register</a>
+          <button class="navbar-toggler shadow-none border-0" type="button" data-bs-toggle="collapse"
+            data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+
+        <div class="collapse navbar-collapse order-lg-2" id="mainNav">
+          <ul class="navbar-nav mx-lg-auto mb-3 mb-lg-0">
+            <li class="nav-item"><a class="nav-link " href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link " href="categories.html">Categories</a></li>
+          </ul>
+          <div class="d-md-none mobile-auth pb-3">
+            <a href="#" class="btn btn-outline-primary w-100 mb-2">Sign in</a>
+            <a href="#" class="btn btn-primary w-100">Register</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="mobile-search-panel border-top" x-show="mobileSearch" x-transition x-cloak>
+      <div class="container py-3">
+        <form action="articles.html" class="position-relative">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input class="form-control form-control-lg search-field" type="search" placeholder="Search stories...">
+        </form>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="article-hero">
+      <div class="container py-5">
+        <div class="article-heading mx-auto">
+          <a href="category.html?category=technology" class="article-category">Technology</a>
+          <h1>The AI Tools Quietly Changing How Developers Work</h1>
+          <p class="article-deck">From code completion to autonomous debugging, a new layer of software is becoming part
+            of the developer's everyday toolkit.</p>
+          <div class="article-author">
+            <div class="author-avatar lg">AM</div>
+            <div><strong>Mahdi Nourizadegan</strong><small>September 8, 2026 · 8 min read</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="article-cover-wrap">
+      <div class="container">
+        <div class="article-cover art-ai"><i class="fa-solid fa-brain"></i><span>MBlog / Technology</span></div>
+      </div>
+    </section>
+
+    <section class="article-content-wrap">
+      <div class="container">
+        <div class="row justify-content-center">
+          <aside class="col-lg-2 d-none d-lg-block">
+            <div class="share-rail">
+              <span>Share</span>
+              <a href="#" aria-label="Share on X"><i class="fa-brands fa-x-twitter"></i></a>
+              <button onclick="copyPageLink()" aria-label="Copy link"><i class="fa-solid fa-link"></i></button>
+            </div>
+          </aside>
+          <article class="col-lg-8 article-prose">
+            <p class="lead">There was a time when “AI for developers” mostly meant autocomplete with a clever name. That
+              phase is ending. The new generation of tools can read codebases, explain unfamiliar systems, propose tests
+              and increasingly complete multi-step engineering tasks.</p>
+
+            <h2>From autocomplete to collaboration</h2>
+            <p>The shift is not just about better suggestions. Modern developer tools are becoming contextual. They can
+              use project files, documentation, error logs and issue descriptions to build a more complete picture of
+              the work in front of them.</p>
+            <p>That changes the developer's role. Less time is spent hunting for syntax or boilerplate, while more time
+              moves toward defining the problem, reviewing tradeoffs and checking whether the generated solution
+              actually fits the system.</p>
+
+            <blockquote>
+              <p>The valuable skill is moving from “Can I write this code?” to “Can I frame, inspect and improve the
+                right solution?”</p>
+            </blockquote>
+
+            <h2>Where the tools already help</h2>
+            <p>Developers are seeing practical gains in a few repeatable areas:</p>
+            <ul>
+              <li>Explaining unfamiliar modules and legacy code.</li>
+              <li>Generating unit tests and edge-case ideas.</li>
+              <li>Drafting repetitive integration or data-mapping code.</li>
+              <li>Debugging from logs and stack traces.</li>
+              <li>Turning plain-language requirements into implementation plans.</li>
+            </ul>
+
+            <div class="article-note"><i class="fa-solid fa-lightbulb"></i>
+              <div><strong>MBlog note</strong>
+                <p>AI output should be treated as a draft, not a verdict. Security, correctness and architecture still
+                  need human review.</p>
+              </div>
+            </div>
+
+            <h2>The skill that matters next</h2>
+            <p>Prompting is useful, but it is not the whole game. The strongest developers will be those who can give
+              tools rich context, break work into sensible steps, notice when an answer is subtly wrong and keep a clear
+              mental model of the system.</p>
+            <p>In other words, software development is not becoming less technical. It is becoming technical in a
+              slightly different shape.</p>
+
+            <h2>What to do this week</h2>
+            <p>Choose one low-risk workflow in your own projects and test an AI assistant there. Ask it to explain a
+              module, generate tests or propose a refactor. Then compare its work against what you would have done
+              manually. Keep the parts that save time. Reject the rest without ceremony.</p>
+
+            <div class="article-tags">
+              <a href="#">AI</a><a href="#">Developer Tools</a><a href="#">Software Engineering</a><a
+                href="#">Productivity</a>
+            </div>
+
+            <div class="author-box">
+              <div class="author-avatar xl">AM</div>
+              <div><span>Written by</span>
+                <h4>Mahdi Nourizadegan</h4>
+                <p>Alex writes about developer tools, AI and the changing craft of software engineering.</p>
+              </div>
+            </div>
+            <!-- ==================== Comments Section ==================== -->
+            <section class="comments-section">
+              <div class="comments-header">
+                <span class="section-kicker">Discussion</span>
+                <h2>Comments <span class="comments-count">2</span></h2>
+              </div>
+
+              <!-- Comment Form -->
+        
+<section class="comments-section" x-data="{ replyTo:0 }">
+
+  <!-- Comment Form -->
+  <form class="comment-form" action="" method="post" x-ref="commentForm">
+    <input type="hidden" name="comment_id" x-bind:value="replyTo" />
+    <input type="hidden" name="post_id" value="1" />
+    <div class="comment-form-avatar">You</div>
+    <div class="comment-form-body">
+      <textarea class="comment-textarea" name="comment" placeholder="Write a comment..." rows="4"></textarea>
+      <div class="comment-form-footer">
+        <template x-if="replyTo!=0">
+              <span @click="replyTo=0" style="cursor: pointer;">delete repling to comment</span>
+        </template>
+        <button type="submit" class="btn btn-primary btn-sm-pill">
+          <i class="fa-solid fa-paper-plane"></i>
+          Send
+        </button>
+      </div>
+    </div>
+  </form>
+
+  <!-- Comments List -->
+  <div class="comments-list">
+
+    <div class="comment-item" data-id="10">
+      <div class="comment-avatar">MR</div>
+      <div class="comment-body">
+        <div class="comment-meta">
+          <strong>Mohammad Rezaei</strong>
+        </div>
+        <p class="comment-text">I think it's still too early to say AI replaces basic skills...</p>
+        <button type="button" class="comment-reply-btn"
+                @click="replyTo = 10; $nextTick(() => $refs.commentForm.scrollIntoView({ behavior: 'smooth', block: 'center' }))">
+          <i class="fa-solid fa-reply"></i>
+          Reply
+        </button>
+      </div>
+    </div>
+
+    <div class="comment-item" data-id="11" style="padding-left: 20px;">
+      <div class="comment-avatar">MR</div>
+      <div class="comment-body">
+        <div class="comment-meta">
+          <strong>Mohammad Rezaei</strong>
+        </div>
+        <p class="comment-text">I think it's still too early to say AI replaces basic skills...</p>
+        <button type="button" class="comment-reply-btn"
+                @click="replyTo = 11; $nextTick(() => $refs.commentForm.scrollIntoView({ behavior: 'smooth', block: 'center' }))">
+          <i class="fa-solid fa-reply"></i>
+          Reply
+        </button>
+      </div>
+    </div>
+
+  </div>
+</section>
+            </section>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-space related-stories">
+      <div class="container">
+        <div class="section-heading mb-4"><span class="section-kicker">Keep reading</span>
+          <h2>Related stories</h2>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4">
+            <article class="post-card">
+              <div class="post-art art-code"><i class="fa-solid fa-terminal"></i></div>
+              <div class="p-4">
+                <div class="post-meta"><span>Development</span><span>6 min</span></div>
+                <h4><a href="article.html">Five Clean-Code Habits That Scale With Your Career</a></h4>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <article class="post-card">
+              <div class="post-art art-cloud"><i class="fa-solid fa-cloud"></i></div>
+              <div class="p-4">
+                <div class="post-meta"><span>Technology</span><span>7 min</span></div>
+                <h4><a href="article.html">What Edge AI Means for Everyday Devices</a></h4>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <article class="post-card">
+              <div class="post-art art-focus"><i class="fa-solid fa-bullseye"></i></div>
+              <div class="p-4">
+                <div class="post-meta"><span>Digital Life</span><span>4 min</span></div>
+                <h4><a href="article.html">Why Your To-Do List Keeps Getting Longer</a></h4>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer mt-5">
+    <div class="container py-5">
+      <div class="row g-4 align-items-start">
+        <div class="col-lg-5">
+          <img src="../public/images/large-logo.png" alt="MBlog logo" class="footer-logo mb-3">
+          <p class="footer-copy">Clear ideas for curious people. MBlog covers technology, development, productivity,
+            digital culture, and the small choices shaping modern life.</p>
+        </div>
+        <div class="col-6 col-lg-2 offset-lg-1">
+          <h6>Explore</h6>
+          <a href="articles.html">Articles</a>
+          <a href="categories.html">Categories</a>
+          <a href="category.html?category=technology">Technology</a>
+          <a href="category.html?category=development">Development</a>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h6>Company</h6>
+          <a href="#">About</a>
+          <a href="#">Contact</a>
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+        </div>
+        <div class="col-lg-2">
+          <h6>Follow</h6>
+          <div class="socials">
+            <a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+            
+            <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom d-flex flex-column flex-md-row justify-content-between gap-2 mt-5 pt-4">
+        <small>© <span id="year"></span> MBlog. All rights reserved.</small>
+        <small>TECH <span>•</span> DEV <span>•</span> LIFE</small>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.9/dist/cdn.min.js"></script>
+  <script src="../public/js/app/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en" x-data="{ mobileSearch: false }">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="MBlog — thoughtful stories about technology, development, and digital life.">
+  <title>Categories | MBlog</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="../public/css/app/style.css">
+</head>
+<body>
+  <header class="site-header sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="index.html" aria-label="MBlog home">
+          <img src="../public/images/large-logo.png" alt="MBlog logo" class="brand-logo">
+        </a>
+
+        <div class="d-flex align-items-center gap-2 order-lg-3">
+          <button class="icon-btn d-lg-none" @click="mobileSearch = !mobileSearch" aria-label="Toggle search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+          <a href="#" class="btn btn-link auth-link d-none d-md-inline-flex">Sign in</a>
+          <a href="#" class="btn btn-primary btn-sm-pill d-none d-md-inline-flex">Register</a>
+          <button class="navbar-toggler shadow-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+
+        <div class="collapse navbar-collapse order-lg-2" id="mainNav">
+          <ul class="navbar-nav mx-lg-auto mb-3 mb-lg-0">
+            <li class="nav-item"><a class="nav-link " href="index.html">Home</a></li>
+
+<li class="nav-item"><a class="nav-link active" href="categories.html">Categories</a></li>
+          </ul>
+          <div class="d-md-none mobile-auth pb-3">
+            <a href="#" class="btn btn-outline-primary w-100 mb-2">Sign in</a>
+            <a href="#" class="btn btn-primary w-100">Register</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="mobile-search-panel border-top" x-show="mobileSearch" x-transition x-cloak>
+      <div class="container py-3">
+        <form action="articles.html" class="position-relative">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input class="form-control form-control-lg search-field" type="search" placeholder="Search stories...">
+        </form>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+<section class="page-hero compact-page-hero">
+  <div class="container py-5">
+    <span class="section-kicker">Browse topics</span>
+    <h1>Categories</h1>
+    <p>Every MBlog article belongs to a clear topic, so your next rabbit hole is easy to find.</p>
+  </div>
+</section>
+
+<section class="section-space pt-4">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-6"><a class="category-panel" href="category.html?category=technology"><div class="panel-icon"><i class="fa-solid fa-microchip"></i></div><div><span>34 articles</span><h3>Technology</h3><p>Artificial intelligence, gadgets, platforms, cloud services, privacy and emerging tech.</p><div class="fake-tags"><span>AI</span><span>Cloud</span><span>Hardware</span><span>Security</span></div></div><i class="fa-solid fa-arrow-right panel-arrow"></i></a></div>
+      <div class="col-md-6"><a class="category-panel" href="category.html?category=development"><div class="panel-icon"><i class="fa-solid fa-code"></i></div><div><span>41 articles</span><h3>Development</h3><p>Frontend, backend, architecture, developer tooling, code quality and engineering careers.</p><div class="fake-tags"><span>JavaScript</span><span>Python</span><span>Web</span><span>Career</span></div></div><i class="fa-solid fa-arrow-right panel-arrow"></i></a></div>
+      <div class="col-md-6"><a class="category-panel" href="category.html?category=design"><div class="panel-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div><div><span>19 articles</span><h3>Design</h3><p>Interface design, UX strategy, design systems, accessibility and visual thinking.</p><div class="fake-tags"><span>UX</span><span>UI</span><span>Systems</span><span>Accessibility</span></div></div><i class="fa-solid fa-arrow-right panel-arrow"></i></a></div>
+      <div class="col-md-6"><a class="category-panel" href="category.html?category=life"><div class="panel-icon"><i class="fa-solid fa-compass"></i></div><div><span>26 articles</span><h3>Digital Life</h3><p>Focus, productivity, creativity, online habits and building a healthier relationship with tech.</p><div class="fake-tags"><span>Focus</span><span>Habits</span><span>Creativity</span><span>Tools</span></div></div><i class="fa-solid fa-arrow-right panel-arrow"></i></a></div>
+      <div class="col-md-6"><a class="category-panel" href="category.html?category=business"><div class="panel-icon"><i class="fa-solid fa-chart-line"></i></div><div><span>17 articles</span><h3>Business</h3><p>Product strategy, startups, digital business models, teams and modern work.</p><div class="fake-tags"><span>Startups</span><span>Product</span><span>Teams</span><span>Growth</span></div></div><i class="fa-solid fa-arrow-right panel-arrow"></i></a></div>
+      <div class="col-md-6"><a class="category-panel" href="category.html?category=guides"><div class="panel-icon"><i class="fa-solid fa-book-open"></i></div><div><span>23 articles</span><h3>Guides</h3><p>Practical explainers, step-by-step tutorials, checklists and starter roadmaps.</p><div class="fake-tags"><span>How-to</span><span>Explainers</span><span>Roadmaps</span><span>Checklists</span></div></div><i class="fa-solid fa-arrow-right panel-arrow"></i></a></div>
+    </div>
+  </div>
+</section>
+
+  </main>
+
+  <footer class="site-footer mt-5">
+    <div class="container py-5">
+      <div class="row g-4 align-items-start">
+        <div class="col-lg-5">
+          <img src="../public/images/large-logo.png" alt="MBlog logo" class="footer-logo mb-3">
+          <p class="footer-copy">Clear ideas for curious people. MBlog covers technology, development, productivity, digital culture, and the small choices shaping modern life.</p>
+        </div>
+        <div class="col-6 col-lg-2 offset-lg-1">
+          <h6>Explore</h6>
+          <a href="articles.html">Articles</a>
+          <a href="categories.html">Categories</a>
+          <a href="category.html?category=technology">Technology</a>
+          <a href="category.html?category=development">Development</a>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h6>Company</h6>
+          <a href="#">About</a>
+          <a href="#">Contact</a>
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+        </div>
+        <div class="col-lg-2">
+          <h6>Follow</h6>
+          <div class="socials">
+            <a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom d-flex flex-column flex-md-row justify-content-between gap-2 mt-5 pt-4">
+        <small>© <span id="year"></span> MBlog. All rights reserved.</small>
+        <small>TECH <span>•</span> DEV <span>•</span> LIFE</small>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.9/dist/cdn.min.js"></script>
+  <script src="../public/js/app/app.js"></script>
+</body>
+</html>
