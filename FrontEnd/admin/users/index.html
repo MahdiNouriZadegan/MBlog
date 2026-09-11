@@ -1,0 +1,94 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBlog admin panel users</title>
+    <link rel="shortcut icon" href="../../../FrontEnd/public/images/small-logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../public/css/admin/style.css">
+    <link rel="stylesheet" href="../../public/css/admin/index.css">
+    <link rel="stylesheet" href="../../public/fonts/fontAwesome/css/font-awesome.min.css">
+    <script src="../../public/js/alpine.js" defer></script>
+</head>
+
+<body>
+    <!-- header -->
+    <section class="header d-flex px-5 align-items-center justify-content-between">
+        <section>
+            <a href=""><img src="../../public/images/large-logo.png" class="logo" alt=""></a>
+        </section>
+        <section>
+            <section class="user-dropdown" x-data="adminDropDown()">
+                <span @click.away="visible=false" x-on:click="visible = !visible">Admin <small><i
+                            x-bind:class="visible == false ? 'fa-chevron-down' : 'fa-chevron-up'"
+                            class="fa"></i></small></span>
+                <section x-show="visible" class="user-drop" x-transition:enter.duration.400ms>
+                    <form action="">
+                        <button class="logout-btn" type="submit">Logout <i class="px-2 fa fa-sign-out"></i></button>
+                    </form>
+                </section>
+            </section>
+        </section>
+    </section>
+    <!-- content -->
+    <section class="content container">
+        <span class="fs-5 content-title">Users</span>
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Profile</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Permission</th>
+                        <th scope="col">Setting</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Mahdi</td>
+                        <td><img class="user-profile" src="../../public/images/small-logo.png" alt=""></td>
+                        <td>mahdi@gmail.com</td>
+                        <td x-data="changeStatus()">
+                            <select class="form-select" x-on:change="handleChangeUserPermission($event.target.id)" id="1">
+                                <option value="1" class="form-control">User</option>
+                                <option value="2" class="form-control">Admin</option>
+                            </select>
+                        </td>
+                        <td class="d-flex justify-content-center align-items-center">
+                            <a href="" class="btn btn-primary mx-2 text-white"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                            <form action="" method="post" class="m-0">
+                                <button class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+
+
+
+    <!-- footer -->
+
+    <section class="footer">
+        <section class="footer-menus d-flex justify-content-center">
+            <a href="" title="Home"><i class="fa fa-home" aria-hidden="true"></i></a><a href="" title="Websetting"><i class="fa fa-cog" aria-hidden="true"></i></a>
+            
+            <a href="" title="Users"><i class="fa fa-user" aria-hidden="true"></i></a>
+            <a href="" title="Posts"><i class="fa fa-newspaper-o" aria-hidden="true"></i></a>
+            <a href="#" title="Tags"><i class="fa fa-tags" aria-hidden="true"></i></a>
+            <a href="" title="Comments"><i class="fa fa-comment" aria-hidden="true"></i></a>
+            <a href="" title="Categories"><i class="fa fa-folder" aria-hidden="true"></i></a>
+        </section>
+    </section>
+
+    <script src="../../public/js/admin/script.js"></script>
+    <script src="../../public/js/admin/change-status.js"></script>
+</body>
+
+</html>

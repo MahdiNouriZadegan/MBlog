@@ -1,0 +1,630 @@
+:root {
+    --primary: #087df5;
+    --primary-dark: #0756c9;
+    --primary-light: #edf6ff;
+    --text-dark: #172033;
+    --text-muted: #7b8497;
+    --border: #e2e8f0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+
+    font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    background:
+        radial-gradient(circle at 10% 10%,
+            rgba(8, 125, 245, .10),
+            transparent 30%),
+        radial-gradient(circle at 90% 90%,
+            rgba(7, 86, 201, .10),
+            transparent 30%),
+        #f7faff;
+
+    color: var(--text-dark);
+}
+
+
+/* =========================
+    PAGE
+========================= */
+
+.register-wrapper {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px 20px;
+}
+
+
+/* =========================
+    CARD
+========================= */
+
+.register-card {
+    width: 100%;
+    max-width: 1050px;
+
+    display: grid;
+    grid-template-columns: 42% 58%;
+
+    overflow: hidden;
+
+    background: #fff;
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 25px 70px rgba(27, 75, 130, .12);
+}
+
+
+/* =========================
+    LEFT SIDE
+========================= */
+
+.brand-section {
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 55px 45px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    color: white;
+
+    background:
+        linear-gradient(145deg,
+            #087df5 0%,
+            #0756c9 55%,
+            #063b99 100%);
+}
+
+
+.brand-section::before {
+    content: "";
+
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, .08);
+
+    top: -140px;
+    right: -120px;
+}
+
+
+.brand-section::after {
+    content: "";
+
+    position: absolute;
+
+    width: 230px;
+    height: 230px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, .06);
+
+    bottom: -120px;
+    left: -100px;
+}
+
+
+.brand-content,
+.brand-footer {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* =========================
+    LOGO
+========================= */
+
+.brand-logo {
+    width: 85px;
+    height: 85px;
+
+    object-fit: contain;
+
+    background: white;
+
+    padding: 7px;
+
+    border-radius: 20px;
+
+    margin-bottom: 30px;
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, .15);
+}
+
+
+.brand-title {
+    font-size: 42px;
+
+    font-weight: 800;
+
+    letter-spacing: -1.5px;
+
+    margin-bottom: 15px;
+}
+
+
+.brand-description {
+    max-width: 330px;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+
+    color: rgba(255, 255, 255, .82);
+}
+
+
+/* =========================
+    FEATURES
+========================= */
+
+.brand-features {
+    margin-top: 40px;
+}
+
+
+.brand-feature {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 18px;
+
+    font-size: 14px;
+
+    color: rgba(255, 255, 255, .9);
+}
+
+
+.feature-icon {
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, .12);
+}
+
+
+.brand-footer {
+    font-size: 12px;
+
+    color: rgba(255, 255, 255, .55);
+}
+
+
+/* =========================
+    FORM
+========================= */
+
+.form-section {
+    padding: 55px 60px;
+}
+
+
+.form-header {
+    margin-bottom: 30px;
+}
+
+
+.form-header h1 {
+    font-size: 30px;
+
+    font-weight: 750;
+
+    letter-spacing: -.8px;
+
+    margin-bottom: 8px;
+}
+
+
+.form-header p {
+    margin: 0;
+
+    color: var(--text-muted);
+
+    font-size: 14px;
+}
+
+
+.form-label {
+    font-size: 13px;
+
+    font-weight: 650;
+
+    margin-bottom: 8px;
+
+    color: #30394b;
+}
+
+
+/* =========================
+    INPUT
+========================= */
+
+.input-wrapper {
+    position: relative;
+}
+
+
+.input-icon {
+    position: absolute;
+
+    left: 15px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: #9aa4b5;
+
+    z-index: 2;
+}
+
+
+.form-control {
+    min-height: 50px;
+
+    border-radius: 12px;
+
+    border: 1px solid var(--border);
+
+    padding-left: 45px;
+
+    padding-right: 45px;
+
+    font-size: 14px;
+
+    transition: .2s;
+}
+
+
+.form-control:focus {
+    border-color: var(--primary);
+
+    box-shadow:
+        0 0 0 4px rgba(8, 125, 245, .10);
+}
+
+
+/* =========================
+    PASSWORD BUTTON
+========================= */
+
+.password-toggle {
+    position: absolute;
+
+    right: 14px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    border: none;
+
+    background: transparent;
+
+    color: #8b95a7;
+
+    cursor: pointer;
+
+    z-index: 3;
+}
+
+
+.password-toggle:hover {
+    color: var(--primary);
+}
+
+
+/* =========================
+    PASSWORD STRENGTH
+========================= */
+
+.password-strength {
+    margin-top: 10px;
+}
+
+
+.strength-bars {
+    display: flex;
+
+    gap: 5px;
+}
+
+
+.strength-bar {
+    height: 4px;
+
+    flex: 1;
+
+    border-radius: 10px;
+
+    background: #e9edf3;
+
+    transition: .25s;
+}
+
+
+.strength-bar.active {
+    background: var(--primary);
+}
+
+
+.strength-text {
+    margin-top: 6px;
+
+    font-size: 11px;
+
+    color: var(--text-muted);
+}
+
+
+/* =========================
+    CAPTCHA
+========================= */
+
+.captcha-box {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 8px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    background: #fafcff;
+}
+
+
+.captcha-question {
+    min-width: 90px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background: var(--primary-light);
+
+    color: var(--primary-dark);
+
+    font-size: 14px;
+
+    font-weight: 700;
+}
+
+
+.captcha-input {
+    min-height: 40px !important;
+
+    padding-left: 10px !important;
+
+    border: none !important;
+
+    box-shadow: none !important;
+
+    background: transparent !important;
+}
+
+
+.captcha-refresh {
+    border: none;
+
+    background: transparent;
+
+    color: var(--primary);
+
+    font-size: 18px;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+    TERMS
+========================= */
+
+.terms {
+    font-size: 12px;
+
+    color: var(--text-muted);
+}
+
+
+.terms a {
+    color: var(--primary);
+
+    text-decoration: none;
+
+    font-weight: 600;
+}
+
+
+/* =========================
+    BUTTON
+========================= */
+
+.register-btn {
+    width: 100%;
+
+    min-height: 52px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(135deg,
+            #087df5,
+            #0756c9);
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: 650;
+
+    box-shadow:
+        0 10px 25px rgba(8, 125, 245, .22);
+
+    transition: .2s;
+}
+
+
+.register-btn:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 14px 30px rgba(8, 125, 245, .28);
+}
+
+
+.register-btn:disabled {
+    opacity: .55;
+
+    cursor: not-allowed;
+
+    transform: none;
+}
+
+
+/* =========================
+    LOGIN
+========================= */
+
+.login-text {
+    text-align: center;
+
+    margin-top: 25px;
+
+    font-size: 13px;
+
+    color: var(--text-muted);
+}
+
+
+.login-text a {
+    color: var(--primary);
+
+    text-decoration: none;
+
+    font-weight: 650;
+}
+
+
+/* =========================
+    RESPONSIVE
+========================= */
+
+@media (max-width: 850px) {
+
+    .register-card {
+        grid-template-columns: 1fr;
+
+        max-width: 600px;
+    }
+
+
+    .brand-section {
+        padding: 35px;
+    }
+
+
+    .brand-title {
+        font-size: 34px;
+    }
+
+
+    .brand-features {
+        display: none;
+    }
+
+
+    .brand-footer {
+        margin-top: 25px;
+    }
+
+
+    .form-section {
+        padding: 40px 30px;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .register-wrapper {
+        padding: 15px;
+    }
+
+
+    .register-card {
+        border-radius: 20px;
+    }
+
+
+    .brand-section {
+        padding: 30px 25px;
+    }
+
+
+    .brand-logo {
+        width: 65px;
+        height: 65px;
+    }
+
+
+    .brand-title {
+        font-size: 30px;
+    }
+
+
+    .form-section {
+        padding: 32px 22px;
+    }
+
+
+    .form-header h1 {
+        font-size: 26px;
+    }
+}
