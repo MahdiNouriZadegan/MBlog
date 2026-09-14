@@ -1,0 +1,150 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBlog edit post</title>
+    <link rel="shortcut icon" href="../../../FrontEnd/public/images/small-logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../public/css/admin/style.css">
+    <link rel="stylesheet" href="../../public/css/admin/index.css">
+    <link rel="stylesheet" href="../../public/fonts/fontAwesome/css/font-awesome.min.css">
+    <script src="../../public/js/alpine.js" defer></script>
+</head>
+
+<body>
+    <!-- header -->
+    <section class="header d-flex px-5 align-items-center justify-content-between">
+        <section>
+            <a href=""><img src="../../public/images/large-logo.png" class="logo" alt=""></a>
+        </section>
+        <section>
+            <section class="user-dropdown" x-data="adminDropDown()">
+                <span @click.away="visible=false" x-on:click="visible = !visible">Admin <small><i
+                            x-bind:class="visible == false ? 'fa-chevron-down' : 'fa-chevron-up'"
+                            class="fa"></i></small></span>
+                <section x-show="visible" class="user-drop" x-transition:enter.duration.400ms>
+                    <form action="">
+                        <button class="logout-btn" type="submit">Logout <i class="px-2 fa fa-sign-out"></i></button>
+                    </form>
+                </section>
+            </section>
+        </section>
+    </section>
+    <!-- content -->
+    <section class="content container">
+        <span class="fs-5 content-title">Edit post</span>
+        <a href="" class="btn btn-warning">Back</a>
+        <form action="#" method="POST" class="mt-4" enctype="multipart/form-data ">
+
+
+            <div class="mb-3">
+                <label for="title" class="form-label fw-semibold">Title <span class="text-danger">*</span></label>
+                <input type="text" name="title" id="title" class="form-control" placeholder="Enter post title" required>
+            </div>
+
+
+            <div class="mb-3">
+                <label for="slug" class="form-label fw-semibold">Slug <span class="text-danger">*</span></label>
+                <input type="text" name="slug" id="slug" class="form-control"
+                    placeholder="Enter post slug (e.g., my-first-post)" required>
+                <div class="form-text">Slug must be unique and URL-friendly.</div>
+            </div>
+
+
+            <div class="mb-3">
+                <label for="category_id" class="form-label fw-semibold">Category <span
+                        class="text-danger">*</span></label>
+                <select name="category_id" id="category_id" class="form-select" required>
+                    <option value="1">Technology</option>
+                    <option value="2">Lifestyle</option>
+                    <option value="3">Health &amp; Wellness</option>
+                    <option value="4">Business</option>
+                    <option value="5">Education</option>
+                </select>
+            </div>
+
+
+            <div class="mb-3">
+                <label for="tags" class="form-label fw-semibold">Tags</label>
+                <select name="tags[]" id="tags" class="form-select" multiple size="5">
+                    <option value="1">Laravel</option>
+                    <option value="2">PHP</option>
+                    <option value="3">JavaScript</option>
+                    <option value="4">Vue.js</option>
+                    <option value="5">React</option>
+                    <option value="6">Design</option>
+                    <option value="7">UI/UX</option>
+                    <option value="8">SEO</option>
+                </select>
+                <div class="form-text">Hold Ctrl (Windows) or Cmd (Mac) to select multiple tags.</div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-semibold">Status <span class="text-danger">*</span></label>
+                <div class="d-flex gap-4">
+                    <div class="form-check">
+                        <input type="radio" name="status" id="status_hidden" value="hidden" class="form-check-input"
+                            checked>
+                        <label for="status_hidden" class="form-check-label">Hidden</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" name="status" id="status_visible" value="visible" class="form-check-input">
+                        <label for="status_visible" class="form-check-label">Visible</label>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label fw-semibold">Choosed <span class="text-danger">*</span></label>
+                <div class="d-flex gap-4">
+                    <div class="form-check">
+                        <input type="checkbox" name="choosed" id="choosed" value="1" class="form-check-input">
+                        <label for="choosed" class="form-check-label">Choose</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="description" class="form-label fw-semibold">Description</label>
+                <textarea name="description" id="description" class="form-control" rows="3"
+                    placeholder="Enter a short description "></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label for="content" class="form-label fw-semibold">Content <span class="text-danger">*</span></label>
+                <textarea name="content" id="content" class="form-control" rows="8"
+                    placeholder="Write your post content here..." required></textarea>
+            </div>
+
+            <div class="mb-4">
+                <label for="cover" class="form-label fw-semibold">Cover Image</label>
+                <input type="file" name="cover" id="cover" class="form-control" accept="image/*">
+                <div class="form-text">Supported formats: JPG, PNG, GIF, WEBP. Max size: 2MB</div>
+            </div>
+            <button type="submit" class="btn btn-success">Create Post</button>
+
+        </form>
+    </section>
+
+
+
+
+    <!-- footer -->
+
+    <section class="footer">
+        <section class="footer-menus d-flex justify-content-center">
+            <a href="" title="Home"><i class="fa fa-home" aria-hidden="true"></i></a><a href="" title="Websetting"><i
+                    class="fa fa-cog" aria-hidden="true"></i></a>
+            <a href="" title="Users"><i class="fa fa-user" aria-hidden="true"></i></a>
+            <a href="" title="Posts"><i class="fa fa-newspaper-o" aria-hidden="true"></i></a>
+            <a href="#" title="Tags"><i class="fa fa-tags" aria-hidden="true"></i></a>
+            <a href="" title="Comments"><i class="fa fa-comment" aria-hidden="true"></i></a>
+            <a href="" title="Categories"><i class="fa fa-folder" aria-hidden="true"></i></a>
+        </section>
+    </section>
+
+    <script src="../../public/js/admin/script.js"></script>
+</body>
+<section class="footer">
+
+</html>

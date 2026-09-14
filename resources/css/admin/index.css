@@ -1,0 +1,18 @@
+.overview-card {
+    border-radius: 12px;
+    transition: 200ms all;
+    display: block;
+}
+.overview-card:hover {
+    border-color: grey !important;
+   
+}
+.overview-box {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.ovb-title i{
+    color:#8ed1ee;
+}
