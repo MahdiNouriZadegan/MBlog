@@ -20,7 +20,8 @@ class Post extends Model
         'slug',
         'category_id',
         'read_time',
-        'status'
+        'status',
+        'comment_able'
     ];
 
     public function user() :BelongsTo
